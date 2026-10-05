@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "reply",
+    "materialIds",
+    "questions",
+    "evidenceIds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "reply": {
+      "type": "string",
+      "maxLength": 4000,
+      "minLength": 1
+    },
+    "materialIds": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "maxLength": 100
+      }
+    },
+    "questions": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      }
+    },
+    "evidenceIds": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "minItems": 1
+    }
+  }
+}

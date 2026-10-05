@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "needs",
+    "concerns",
+    "productId",
+    "stageSuggestion",
+    "missingInfo",
+    "evidenceIds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "needs": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "concerns": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "productId": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "stageSuggestion": {
+      "type": "string",
+      "enum": [
+        "NEW",
+        "CONTACTED",
+        "QUALIFIED",
+        "OFFERED",
+        "LOST",
+        "UNKNOWN"
+      ]
+    },
+    "missingInfo": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      }
+    },
+    "evidenceIds": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "minItems": 1
+    }
+  }
+}

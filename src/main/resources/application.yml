@@ -1,0 +1,71 @@
+server:
+  port: ${PORT:8085}
+ai:
+  models:
+    enabled: [sales]
+    configs:
+      sales:
+        api-key: ${AI_API_KEY:}
+        base-url: ${AI_BASE_URL:https://open.bigmodel.cn/api/paas/v4/}
+        model-name: ${AI_MODEL:glm-4-flash}
+  vector:
+    host: ${MILVUS_HOST:localhost}
+    port: ${MILVUS_PORT:19530}
+    collectionName: sales_copilot_vectors
+    dimension: 1536
+    score: 0.5
+    enabled: []
+    configs: {}
+iyque:
+  userName: ${ADMIN_USERNAME:admin}
+  pwd: ${ADMIN_PASSWORD}
+  demo: false
+  fileViewUrl: ${PUBLIC_URL:http://localhost:8085}/api/file/fileView/
+  uploadDir: ${UPLOAD_DIR:./upload}
+  inquiryAll: false
+  complaintUrl: ${PUBLIC_URL:http://localhost:8085}/mobile/
+  customerSeasUrl: ${PUBLIC_URL:http://localhost:8085}/mobile/
+  h5MarketUrl: ${PUBLIC_URL:http://localhost:8085}/mobile/
+  vector:
+    host: ${MILVUS_HOST:localhost}
+    port: ${MILVUS_PORT:19530}
+    collectionName: sales_copilot_vectors
+    dimension: 1536
+    vectorModel: embedding-3
+    score: 0.5
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/sales_copilot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME:sales_copilot}
+    password: ${DB_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: false
+    show-sql: false
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: 0
+  jackson:
+    time-zone: Asia/Shanghai
+    serialization:
+      fail-on-empty-beans: false
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+sales:
+  catalog: ${SALES_CATALOG:classpath:sales-catalog/products.json}
+  archive:
+    enabled: ${WECOM_ARCHIVE_ENABLED:false}
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: cn.iyque.entity
+  configuration:
+    map-underscore-to-camel-case: false

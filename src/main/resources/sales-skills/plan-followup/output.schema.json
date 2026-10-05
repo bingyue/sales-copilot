@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "action",
+    "reason",
+    "dueAt",
+    "evidenceIds"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "type": "string",
+      "maxLength": 1000,
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 2000,
+      "minLength": 1
+    },
+    "dueAt": {
+      "type": "string",
+      "maxLength": 40,
+      "format": "date-time"
+    },
+    "evidenceIds": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "maxLength": 160
+      },
+      "minItems": 1
+    }
+  }
+}

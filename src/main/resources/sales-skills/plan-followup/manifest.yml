@@ -1,0 +1,7 @@
+id: plan-followup
+version: 1.0.0
+title: 规划跟进
+prompt: SKILL.md
+inputSchema: input.schema.json
+outputSchema: output.schema.json
+allowedReads: [lead, conversation, pendingTasks, products]

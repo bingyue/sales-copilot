@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "now",
+    "timezone",
+    "lead",
+    "profileEvidenceId",
+    "conversation",
+    "pendingTasks",
+    "products",
+    "catalogVersion",
+    "sourceNotice"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "now": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timezone": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "lead": {
+      "type": "object"
+    },
+    "profileEvidenceId": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "conversation": {
+      "type": "array"
+    },
+    "pendingTasks": {
+      "type": "array"
+    },
+    "products": {
+      "type": "array"
+    },
+    "catalogVersion": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "sourceNotice": {
+      "type": "string",
+      "maxLength": 300
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.git
+.local
+**/node_modules
+**/.env
+**/dist
+configFile/*.zip
+target/*
+!target/sales-copilot-1.0.0.jar

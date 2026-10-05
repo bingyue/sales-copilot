@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.app.json",
+  "include": [
+    "env.d.ts",
+    "src/views/sales/**/*.ts",
+    "src/views/sales/**/*.vue",
+    "src/views/system/login/index.vue",
+    "src/views/system/login/api.d.ts",
+    "src/utils/request.d.ts",
+    "src/utils/auth.d.ts"
+  ],
+  "compilerOptions": {
+    "composite": false,
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.sales.tsbuildinfo",
+    "types": [
+      "vite/client",
+      "element-plus/global"
+    ],
+    "incremental": true
+  }
+}
