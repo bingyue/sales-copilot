@@ -1,16 +1,24 @@
 import Cookies from 'js-cookie'
-const TokenKey = 'Admin-Token'
+const TokenKey = 'Jizhi-Sales-Token'
+
+function cookieOptions() {
+  return {
+    path: window.sysConfig.BASE_URL.replace(/tools\/$/, ''),
+    sameSite: 'lax',
+    secure: window.location.protocol === 'https:',
+  }
+}
 
 export function getToken() {
   return Cookies.get(TokenKey)
 }
 
 export function setToken(token) {
-  return Cookies.set(TokenKey, token)
+  return Cookies.set(TokenKey, token, cookieOptions())
 }
 
 export function removeToken() {
-  return Cookies.remove(TokenKey)
+  return Cookies.remove(TokenKey, cookieOptions())
 }
 
 // import { getQueryValue } from './index'

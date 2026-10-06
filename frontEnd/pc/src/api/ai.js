@@ -23,7 +23,7 @@ export function getFunctionRoutes() {
 }
 
 export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
-  const url = '/api/iYqueAi/chatWithMemoryStream'
+  const url = window.sysConfig.BASE_API + '/iYqueAi/chatWithMemoryStream'
   
   return new Promise((resolve, reject) => {
     let fullResponse = ''
@@ -166,7 +166,7 @@ export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
 }
 
 export function navigationChatStream(data, onMessage, onError, onComplete) {
-  const url = '/api/iYqueAi/navigationChatStream'
+  const url = window.sysConfig.BASE_API + '/iYqueAi/navigationChatStream'
   
   return new Promise((resolve, reject) => {
     let fullResponse = ''

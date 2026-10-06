@@ -23,6 +23,7 @@ export default defineConfig(async ({ command, mode }) => {
   return {
     define: {
       'process.env.VUE_APP_ENV': JSON.stringify(mode),
+      'process.env.SALES_PUBLIC_PATH': JSON.stringify(process.env.SALES_PUBLIC_PATH || ''),
       __PACK_DATETIME__: JSON.stringify(new Date().toLocaleString()),
     },
     base: env.BASE_URL || '/',
